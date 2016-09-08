@@ -8,7 +8,7 @@ from bs4 import BeautifulSoup
 
 # Firebase config
 config = {
-  "apiKey": "AIzaSyAOVPc16JfzEutPA95U9h3TT1rQnQR1DLA",
+  "apiKey": "",
   "authDomain": "quote-b781f.firebaseapp.com",
   "databaseURL": "https://quote-b781f.firebaseio.com/",
   "storageBucket": "quote-b781f.appspot.com"
@@ -23,7 +23,7 @@ auth = firebase.auth()
 user = auth.sign_in_with_email_and_password(email, password)
 
 
-### link content 
+### link content
 link = 'http://www.cwb.gov.tw/V7/prevent/typhoon/Data/PTA_NEW/index.htm'
 
 
