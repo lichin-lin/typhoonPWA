@@ -1,0 +1,25 @@
+{
+  "version": "1.0.0",
+  "name": "Typhoon",
+  "launch_path": "/index.html",
+  "description": "Typhoon!",
+  "icons": {
+    "128": "/images/touch/icon-128x128.png"
+  },
+  "developer": {
+    "name": "Lichin Lin",
+    "url": "https://lichin.me"
+  },
+  "installs_allowed_from": [
+    "*"
+  ],
+  "default_locale": "en",
+  "permissions": {
+  },
+  "locales": {
+    "en": {
+      "name": "Typhoon",
+      "description": "Typhoon"
+    }
+  }
+}
