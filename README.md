@@ -1,7 +1,6 @@
 # typhoonPWA
-simple progressive web app　🌝
-
 This is a simple progressive web app practice follow by: https://developers.google.com/web/progressive-web-apps/
+live app: https://quote-b781f.firebaseapp.com
 
 ## Step
 1.  [python] parse typhoon position data from Taiwan Central Weather Bureau.
