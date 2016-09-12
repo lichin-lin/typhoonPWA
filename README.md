@@ -1,5 +1,5 @@
 # typhoonPWA
-This is a simple progressive web app practice follow by: https://developers.google.com/web/progressive-web-apps/
+This is a simple progressive web app practice follow by: https://developers.google.com/web/progressive-web-apps/<br/>
 live app: https://quote-b781f.firebaseapp.com
 
 ## Step
