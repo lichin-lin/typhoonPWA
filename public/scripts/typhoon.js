@@ -84,11 +84,11 @@
 		 	typhoonImgSrc = "danger.png";
 		 }
 
-		 $('#intro').append(`<span>${data.type}-${data.name}</span>`);
-		 $('#intro').append(`<span>E${data.lng}, N${data.lat}</span>`);
-		 $('#intro').append(`<span class="tip">距離</span><span>${data.distance} km</span>`);
-		 $('#intro').append(`<span>通常您不會離海岸超過100km</span>`);
-		 $('#intro').append(`<span class="tip">最後更新</span><span>${datetime}</span>`);
+		 $('#intro').append(`<span class="title">${data.type}-${data.name}</span>`);
+		 $('#intro').append(`<span class="explain">E${data.lng}, N${data.lat}</span>`);
+		 $('#intro').append(`<span class="tip">距離</span><span class="numbers">${data.distance} km</span>`);
+		 $('#intro').append(`<span class="explain">通常您不會離海岸超過100km</span>`);
+		 $('#intro').append(`<span class="tip">最後更新</span><span class="numbers">${datetime}</span>`);
 
 		 $('.typhoonImg').append(`<img src="./images/${typhoonImgSrc}"/>`)
 		 app.positionRecord = data

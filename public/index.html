@@ -4,7 +4,7 @@
     <meta charset='utf-8'>
     <title>Mr.typhoon</title>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <meta name='description' content='A man. Probably the best man in the world.'>
+    <meta name='description' content='A web app. Probably the most simple typhoon position tracking app.'>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel='canonical' href='https://quote-b781f.firebaseapp.com'>
     <link rel='manifest' href='manifest.json'>
@@ -13,21 +13,21 @@
     <meta name='application-name' content='Mr.typhoon'>
     <meta name='apple-mobile-web-app-status-bar-style' content='black'>
     <meta name='apple-mobile-web-app-title' content='Mr.typhoon'>
-    <link rel=icon sizes=192x192 href=/images/touch/zone.png>
-    <link rel=apple-touch-icon href=/images/touch/zone_192.png>
-    <meta name='msapplication-TileImage' content='/images/touch/zone_144.png'>
+    <link rel=icon sizes=192x192 href=/images/touch/rabbit.png>
+    <link rel=apple-touch-icon href=/images/touch/rabbit_192.png>
+    <meta name='msapplication-TileImage' content='/images/touch/rabbit_144.png'>
     <meta name='msapplication-TileColor' content='#2196F3'>
     <meta name='theme-color' content='#2196F3'>
     <meta property='og:title' content='Mr.typhoon'>
     <meta property='og:type' content='website'>
-    <meta property='og:image' content='https://quote-b781f.firebaseapp.com/images/touch/zone_192.png'>
+    <meta property='og:image' content='https://quote-b781f.firebaseapp.com/images/touch/rabbit_192.png'>
     <meta property='og:url' content='https://quote-b781f.firebaseapp.com'>
     <meta property='og:description' content='A man. Probably the best man in the world.'>
     <meta name='twitter:card' content='summary'>
     <meta name='twitter:url' content='https://quote-b781f.firebaseapp.com'>
     <meta name='twitter:title' content='Mr.typhoon'>
     <meta name='twitter:description' content='A man. Probably the best man in the world.'>
-    <meta name='twitter:image' content='https://quote-b781f.firebaseapp.com/images/touch/zone_192.png'>
+    <meta name='twitter:image' content='https://quote-b781f.firebaseapp.com/images/touch/rabbit_192.png'>
     <meta name='twitter:creator' content=''>
     <link rel='stylesheet' href='styles/main.css'/>
     <script src="./scripts/jquery.min.js"></script>
@@ -37,9 +37,9 @@
   	<div class="connection">you are now online!</div>
 
 	<div class="typhoonContainer">
+
 	    <main class='main' hidden>
 	    	<div class="typhoonImg">
-	    		<!-- <img src="./images/small.png" alt="TyphoonType">	 -->
 	    	</div>
 	        <div id='intro'>
 	        	<span>Mr.typhoon</span>
@@ -47,7 +47,18 @@
 	    </main>
 
 	    <button id='butRefresh' class="headerButton">refresh</button>
+
+		<div class="authorContainer">
+			<span class="tip">說明</span>
+			<span class="explain">這是簡易的離線 web app，將此網頁加入手機桌面，即可變成一個app。有興趣的人歡迎到我的<a href="https://lichin.me/" target="blank"> 部落格</a> 瞭解更多 google 正在推動的 progressive web app 技術。</span>
+			<span class="explain">如果喜歡專案也能到<a href="https://github.com/lichin-lin/typhoonPWA" target="blank"> Github</a> 給予我星星～以及給我任何不管是前端上面、設計上面的建議。</span>
+			<span class="tip">注意</span>
+			<span class="explain">此app並非即時官方資訊，若發生資訊不對稱時，仍以生物本能為主，這只是作者的一個網頁練習。</span>
+		</div>
+
 	</div>
+
+
 
     <div class="loader" hidden>
         <svg viewBox="0 0 32 32" width="32" height="32">
