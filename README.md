@@ -8,3 +8,6 @@ live app: https://quote-b781f.firebaseapp.com
 3.  [Firebase] some Auth from user to get data.
 4.  [PWA] write service-worker/APP shell to handle network/caches.
 5.  [Sketch] design icon and typhoon img for this app.
+
+## Blog
+https://lichin.me/blog/2016/09/12/mrtyphoon-progressive-web-app
