@@ -1,12 +1,18 @@
+@import 'https://fonts.googleapis.com/css?family=Open+Sans:300,400';
 
-@import'https://fonts.googleapis.com/css?family=Open+Sans';
+@font-face {
+  font-family: 'Galano_Grotesque';
+  src: url('../images/Galano_Grotesque _DEMO_Bold.otf');
+}
 
 body {
     margin: 0;
+    padding: 0;
     background-color: #2196F3
 }
+
 * {
-	font-family: 'Open Sans', sans-serif;
+	font-family: 'Galano_Grotesque', 'Open Sans', sans-serif;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
@@ -20,62 +26,136 @@ body
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
-    -webkit-box-align: center;
     -webkit-align-items: center;
-    -ms-flex-align: center;
     align-items: center;
-    -webkit-box-pack: center;
     -webkit-justify-content: center;
-    -ms-flex-pack: center;
     justify-content: center;
     flex-direction: column;
 }
 
+body {
+	padding: 15px;
+}
+
+.typhoonContainer {
+	max-width: 768px;
+	width: 100%;
+}
 #intro {
     height: auto;
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
-    -webkit-box-align: center;
-    -webkit-align-items: center;
-    -ms-flex-align: center;
-    align-items: center;
-    -webkit-box-pack: center;
+    -webkit-align-items: flex-start;
+    align-items: flex-start;
     -webkit-justify-content: center;
-    -ms-flex-pack: center;
     justify-content: center;
     flex-direction: column;
 }
 
 .headerButton {
-    width: auto;
+    width: 100%;
     height: auto;
-    color: #eade00;
+    color: #f9ee1f;
     margin: 20px 0;
     padding: 10px 20px;
     font-size: 1.5em;
-    border-radius: 10px;
-    border: 5px solid #eade00;
+    border-radius: 5px;
+    border: 5px solid #f9ee1f;
+    letter-spacing: 2px;
     overflow: hidden;
+    background: transparent;
     -webkit-transition: opacity 0.333s cubic-bezier(0, 0, 0.21, 1);
     transition: opacity 0.333s cubic-bezier(0, 0, 0.21, 1);
     cursor: pointer;
     outline: none; }
-#butRefresh {
-background: url(/images/ic_refresh_white_24px.svg) center center no-repeat; }
+
+.connection {
+	position: fixed;
+	height: 50px;
+	width: 100%;
+	color: white;
+	background: #57d48e;
+	border-bottom: 2px solid #06a04a;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 1.25em;
+	letter-spacing: 2px;
+	top: -52px;
+	left: 0;
+	transition: all 0.35s ease;
+}
+
+.connection.active {
+	top: 0px;
+	transition: all 0.35s ease;
+}
+
+.connection.offline {
+	background: #d45757;
+	border-color: #a00606;
+}
 
 .main {
-  padding-top: 60px;
+  padding: 0px;
   overflow-x: hidden;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch; }
 
+.typhoonImg {
+	margin: 5px auto;
+	width: 200px;
+	height: 200px;
+}
+
+@media screen and (min-width: 1200px){
+	.typhoonImg {
+		width: 300px;
+		height: 300px;		
+	}
+}
+
+@media screen and (max-width: 480px){
+	.typhoonImg {
+		width: 100px;
+		height: 100px;		
+	}
+}
+
+.typhoonImg img {
+	width: 100%;
+	height: 100%;
+}
 #intro span {
     color: white;
+    font-size: 1.5em;
+    letter-spacing: 2px;
+}
+
+#intro span:nth-child(1) {
     font-size: 2em;
 }
 
+#intro span:nth-child(2),
+#intro span:nth-child(5) {
+    font-size: 1em;
+    letter-spacing: 5px;
+    font-family: 'Open Sans', sans-serif;
+	font-weight: lighter;
+}
+
+#intro span:nth-child(4),
+#intro span:nth-child(7){
+    font-size: 2.5em;
+}
+
+#intro span.tip {
+	font-family: 'Open Sans', sans-serif;
+	border-bottom: 4px solid white;
+	margin: 20px 0 10px 0;
+}
 .card {
   padding: 16px;
   position: relative;

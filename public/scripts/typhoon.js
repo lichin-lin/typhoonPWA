@@ -6,6 +6,7 @@
 		name: '範例颱風',
 		lat:  '25',
 		lng:  '120',
+		distance: 2000,
 	};
 
 	var app = {
@@ -25,9 +26,10 @@
 
 	document.getElementById('butRefresh').addEventListener('click', function() {
 		// Refresh
+		console.log("[typhoon app] (1/2)updating..., hasRequestPending => " + app.hasRequestPending);
 		app.updateTyphoon();
 		app.saveTyphoonData();
-		console.log("[typhoon app] updating..., hasRequestPending=>" + app.hasRequestPending);
+		console.log("[typhoon app] (2/2)update finish, hasRequestPending => " + app.hasRequestPending);
 	});
 
 
@@ -45,7 +47,7 @@
 			app.spinner.setAttribute('hidden', true);
 			app.container.removeAttribute('hidden');
 			app.isLoading = false;
-		}
+		} 
 	};
 
 
@@ -54,23 +56,43 @@
      * Methods for dealing with the model
      *
      ****************************************************************************/
-
 	 app.apppendData = function(data) {
+	 	 $('.typhoonImg').empty();
 		 $('#intro').empty();
+
+		 // assume typhoon speed = 20km/hr
+		 // [海上颱風警報] 應發布：
+		 // 預測颱風之7級風暴風範圍可能侵襲臺灣或金門、馬祖100公里以內海域時之前24小時(20km/hr * 24hr)。
+		 // [陸上颱風警報] 應發布：
+		 // 預測颱風之7級風暴風範圍可能臺灣或金門、馬祖陸上之前18小時。
+		 var seaWarnings = 100 + 100 + 24*20;
+		 var landWarning = 100 + 18*20;
+		 var typhoonImgSrc = "";
+
 		 var currentdate = new Date();
-		 var datetime = "最後更新: " + currentdate.getDate() + "/"
-		                 + (currentdate.getMonth()+1)  + "/"
-		                 + currentdate.getFullYear() + " @ "
-		                 + currentdate.getHours() + ":"
-		                 + currentdate.getMinutes() + ":"
-		                 + currentdate.getSeconds();
-		 $('#intro').append(`<span>${data.type}</span>`);
-		 $('#intro').append(`<span>${data.name}</span>`);
-		 $('#intro').append(`<span>${data.lat}</span>`);
-		 $('#intro').append(`<span>${data.lng}</span>`);
-		 $('#intro').append(`<span>${datetime}</span>`);
+		 var dayType = currentdate.getHours < 12? "PM" : "AM";
+		 var dayHour = (currentdate.getHours() < 10? "0": "") + currentdate.getHours();
+		 var dayMin  = (currentdate.getMinutes() < 10? "0": "") + currentdate.getMinutes();
+		 var daySec  = (currentdate.getSeconds() < 10? "0": "") + currentdate.getSeconds();
+		 var datetime =  dayHour + ":" + dayMin + ":" + daySec + " " + dayType;
+
+		 if(data.distance > seaWarnings) {
+		 	typhoonImgSrc = "small.png";
+		 } else if (data.distance > landWarning) {
+		 	typhoonImgSrc = "middle.png";
+		 } else {
+		 	typhoonImgSrc = "danger.png";
+		 }
+
+		 $('#intro').append(`<span>${data.type}-${data.name}</span>`);
+		 $('#intro').append(`<span>E${data.lng}, N${data.lat}</span>`);
+		 $('#intro').append(`<span class="tip">距離</span><span>${data.distance} km</span>`);
+		 $('#intro').append(`<span>通常您不會離海岸超過100km</span>`);
+		 $('#intro').append(`<span class="tip">最後更新</span><span>${datetime}</span>`);
+
+		 $('.typhoonImg').append(`<img src="./images/${typhoonImgSrc}"/>`)
 		 app.positionRecord = data
-		 console.log("[typhoon app] after append:" + app.positionRecord.name);
+		 console.log("[typhoon app] append typhoon [" + app.positionRecord.name + "] finish: ");
 	 }
 
     // Gets a forecast for a specific city and update the card with the data
@@ -78,14 +100,14 @@
 		var data;
 		var url = 'https://quote-b781f.firebaseio.com/typhoon.json';
 		if ('caches' in window) {
-			console.log("[typhoon app] get position from caches");
+			console.log("[typhoon app] getting position from caches...");
 			caches.match(url).then(function(response) {
 				if (response) {
 					response.json().then(function(json) {
 						// Only update if the XHR is still pending, otherwise the XHR
 						// has already returned and provided the latest data.
 						if (app.hasRequestPending) {
-							console.log('[typhoon app] typhoon Updated From Cache');
+							console.log('[typhoon app] data Updated From Cache');
 							app.apppendData(json);
 							return;
 						}
@@ -93,29 +115,17 @@
 				}
 			});
 		}
-		console.log("[typhoon app] get position from api");
+		console.log("[typhoon app] getting position from api...");
 		app.hasRequestPending = true;
-		//  	var res;
-		// $.get(url, function(res){
-		//   	data = res;
-		// })
-		// .done(function() {
-		//   	console.log('[typhoon app] typhoon Updated From network');
-		//   	app.apppendData(data);
-		// })
-		// .fail(function() {
-		//   	console.log(`fail! ${data}`);
-		// })
-		// Make the XHR to get the data, then update the card
+
 	    var request = new XMLHttpRequest();
 	    request.onreadystatechange = function() {
 	      if (request.readyState === XMLHttpRequest.DONE) {
 	        if (request.status === 200) {
 	          var response = JSON.parse(request.response);
-			  console.log(response + ", try to find name: " + response.name);
-	        //   response.name = 'name';
 	          app.hasRequestPending = false;
-	          console.log('[App] Forecast Updated From Network');
+	          console.log('[typhoon data Updated From Network');
+			  // alert("[network update]");
 	          app.apppendData(response);
 	        }
 	      }
@@ -127,10 +137,10 @@
     // Save list to localStorage, see note below about localStorage.
     app.saveTyphoonData = function() {
 		var record = JSON.stringify(app.positionRecord);
-		console.log("[typhoon app] show save record: "  + record);
+		console.log("[typhoon app] show save record: ");//  + record);
 
 		localStorage.record = record;
-		console.log("[typhoon app] show local record: " + localStorage.record);
+		console.log("[typhoon app] show local record: ");// + localStorage.record);
     };
 
 	/*****************************************************************************

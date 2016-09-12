@@ -33,16 +33,21 @@
     <script src="./scripts/jquery.min.js"></script>
   </head>
   <body>
-    <main class='main' hidden>
-        <div id='intro'>Mr.typhoon</div>
-        <div id='zone'>
-            <!-- <img src="./images/touch/zone-bg.jpg"> -->
-        </div>
-        <div class="typhoon">
-        </div>
-    </main>
 
-    <button id='butRefresh' class="headerButton">refresh</button>
+  	<div class="connection">you are now online!</div>
+
+	<div class="typhoonContainer">
+	    <main class='main' hidden>
+	    	<div class="typhoonImg">
+	    		<!-- <img src="./images/small.png" alt="TyphoonType">	 -->
+	    	</div>
+	        <div id='intro'>
+	        	<span>Mr.typhoon</span>
+	        </div>
+	    </main>
+
+	    <button id='butRefresh' class="headerButton">refresh</button>
+	</div>
 
     <div class="loader" hidden>
         <svg viewBox="0 0 32 32" width="32" height="32">
@@ -55,13 +60,14 @@
       if('serviceWorker' in navigator) {
         navigator.serviceWorker.register('/sw.js', { scope: '/' })
           .then(function(registration) {
-                console.log('Service Worker Registered');
+                console.log('[Service Worker] Registered');
           });
 
         navigator.serviceWorker.ready.then(function(registration) {
-           console.log('Service Worker Ready');
+           console.log('[Service Worker] Ready');
         });
       }
     </script>
+    <script src="/scripts/monitor.js"></script>
   </body>
 </html>
