@@ -107,7 +107,7 @@
 						// Only update if the XHR is still pending, otherwise the XHR
 						// has already returned and provided the latest data.
 						if (app.hasRequestPending) {
-							alert('[typhoon app] data Updated From Cache');
+							console.log('[typhoon app] data Updated From Cache');
 							app.apppendData(json);
 							return;
 						}
@@ -124,7 +124,7 @@
 	        if (request.status === 200) {
 	          var response = JSON.parse(request.response);
 	          app.hasRequestPending = false;
-	          alert('[typhoon data Updated From Network');
+	          console.log('[typhoon data Updated From Network');
 			  // alert("[network update]");
 	          app.apppendData(response);
 	        }
