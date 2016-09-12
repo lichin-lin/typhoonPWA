@@ -8,7 +8,10 @@ var filesToCache = [
     '/styles/main.css',
     '/scripts/jquery.min.js',
     '/scripts/typhoon.js',
-    './scripts/monitor.js',
+    '/scripts/monitor.js',
+    './images/small.png',
+    './images/middle.png',
+    './images/danger.png',
 ];
 
 // during the install phase you usually want to cache static assets
