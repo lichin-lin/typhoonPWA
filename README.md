@@ -12,3 +12,6 @@ live app: https://quote-b781f.firebaseapp.com
 ## Blog
 If you like to read some of my idea when making this app, you may take a look from my blog post:
 https://lichin.me/blog/2016/09/12/mrtyphoon-progressive-web-app
+
+## 2016/09/11
+weqwekmwlfmlewf
