@@ -74,6 +74,7 @@ body {
 
 .connection {
 	position: fixed;
+	z-index: 999;
 	height: 50px;
 	width: 100%;
 	color: white;
@@ -174,15 +175,16 @@ span a {
 
 
   .loader {
-    left: 50%;
-    top: 50%;
+    right: 0px;
+    top: 30px;
     position: fixed;
+    z-index: 9999;
     -webkit-transform: translate(-50%, -50%);
             transform: translate(-50%, -50%); }
     .loader #spinner {
       box-sizing: border-box;
-      stroke: #673AB7;
-      stroke-width: 3px;
+      stroke: #f9ee1f;
+      stroke-width: 4px;
       -webkit-transform-origin: 50%;
               transform-origin: 50%;
       -webkit-animation: line 1.6s cubic-bezier(0.4, 0, 0.2, 1) infinite, rotate 1.6s linear infinite;

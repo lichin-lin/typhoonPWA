@@ -46,8 +46,8 @@ while True:
 	### make url request
 	res = requests.get(link)
 	soup = BeautifulSoup(res.text.encode("latin1").decode(), "html.parser")
-	typhoon_info = soup.select(".patch font")
-	typhoon_position = soup.select(".patch")
+	typhoon_info = soup.select("#patch-0 font")
+	typhoon_position = soup.select("#patch-0")
 
 	### print out the data
 	### for shop in typhoon_info:
@@ -61,6 +61,7 @@ while True:
 	position = re.findall("\d+\.\d+", typhoon_position[0].text)
 
 	taiwan__middle__position = [23, 120]
+	# position = ['20.4','122.9']
 	two__point__distance = distance(taiwan__middle__position, [float(position[0]), float(position[1])])
 
 	### claculate the distance between two point

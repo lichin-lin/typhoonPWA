@@ -3,8 +3,7 @@ $.extend({
 		var connectType;
 		if(type === "offline") {
 		    $('.connection').text("sorry, you are now offline...");
-		    // $('.loader').removeAttr('hidden');
-		    // $('.main').attr('hidden', true);
+		    $('.loader').attr('hidden', true);
 			$("#butRefresh").attr("disabled", true).css("cursor", "not-allowed");
 		    $('.connection').addClass('offline');
 		    $('.connection').addClass('active');
@@ -12,9 +11,7 @@ $.extend({
 
 		} else {
 		    $('.connection').text("you are now online!");
-		    // $('.main').removeAttr('hidden');
-		     $("#butRefresh").attr("disabled", false).css("cursor", "pointer");
-		    $('.loader').attr('hidden', true);
+		    $("#butRefresh").attr("disabled", false).css("cursor", "pointer");
 		    $('.connection').removeClass('offline');
 		    $('.connection').addClass('active');
 		    connectType = "online";

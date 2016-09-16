@@ -42,12 +42,11 @@
 	// Updates a weather card with the latest weather forecast. If the card
 	// doesn't already exist, it's cloned from the template.
 	app.updateTyphoon = function() {
-		app.getTyphoonPosition();
-		if (app.isLoading) {
-			app.spinner.setAttribute('hidden', true);
-			app.container.removeAttribute('hidden');
-			app.isLoading = false;
-		} 
+		app.spinner.removeAttribute('hidden');
+		app.container.removeAttribute('hidden');
+	    setTimeout(function () { 
+	    	app.getTyphoonPosition();
+		}, 2000);
 	};
 
 
@@ -57,6 +56,7 @@
      *
      ****************************************************************************/
 	 app.apppendData = function(data) {
+	 	 app.spinner.setAttribute('hidden', true);
 	 	 $('.typhoonImg').empty();
 		 $('#intro').empty();
 
@@ -70,7 +70,7 @@
 		 var typhoonImgSrc = "";
 
 		 var currentdate = new Date();
-		 var dayType = currentdate.getHours < 12? "PM" : "AM";
+		 var dayType = currentdate.getHours < 12? "AM" : "PM";
 		 var dayHour = (currentdate.getHours() < 10? "0": "") + currentdate.getHours();
 		 var dayMin  = (currentdate.getMinutes() < 10? "0": "") + currentdate.getMinutes();
 		 var daySec  = (currentdate.getSeconds() < 10? "0": "") + currentdate.getSeconds();
